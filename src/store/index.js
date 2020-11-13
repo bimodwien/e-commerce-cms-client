@@ -7,12 +7,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    currentProducts: {}
   },
   mutations: {
     SET_PRODUCTS(state, dataProducts) {
       state.products = dataProducts
     },
+    SET_CURRENT_PRODUCTS(state, dataProducts) {
+      state.currentProducts = dataProducts
+    }
   },
   actions: {
     submitLogin(context, payload) {
@@ -89,8 +93,8 @@ export default new Vuex.Store({
     },
 
     editProducts({dispatch}, payload) {
-      const token = localStorage.getItem('access_token')
-      
+      console.log(payload);
+      const token = localStorage.getItem('access_token')     
       axios({
         method: 'PUT',
         url: `http://localhost:3000/products/${payload.id}`,

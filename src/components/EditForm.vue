@@ -2,14 +2,14 @@
   <div>
     <div class="row justify-content-center">
       <div class="col-4">
-        <form @submit.prevent="editProduct(id)">
+        <form @submit.prevent="editProduct">
           <div class="form-group">
             <label for="productName">Name</label>
             <input
               type="text"
               class="form-control"
               id="productName"
-              v-model="name"
+              v-model="product.name"
             />
           </div>
           <div class="form-group">
@@ -18,7 +18,7 @@
               type="text"
               class="form-control"
               id="productImage"
-              v-model="image_url"
+              v-model="product.image_url"
             />
           </div>
           <div class="form-group">
@@ -27,7 +27,7 @@
               type="text"
               class="form-control"
               id="productPrice"
-              v-model="price"
+              v-model="product.price"
             />
           </div>
           <div class="form-group">
@@ -36,7 +36,7 @@
               type="text"
               class="form-control"
               id="productStock"
-              v-model="stock"
+              v-model="product.stock"
             />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -49,7 +49,11 @@
 <script>
 export default {
   name: "edit-form",
-  props: ["id"],
+  computed: {
+    product() {
+      return this.$store.state.currentProducts;
+    },
+  },
   data() {
     return {
       name: "",
@@ -59,29 +63,12 @@ export default {
     };
   },
   methods: {
-    editProduct(id) {
-      let data = {
-        name: this.name,
-        image_url: this.image_url,
-        price: this.price,
-        stock: this.stock,
-      };
-      this.$store.dispatch("editProducts", data);
+    editProduct() {
+      let payload = this.product
+      this.$store.dispatch("editProducts", payload)
+      this.$router.push('/')
     },
-  },
-  created() {
-    this.$store
-      .dispatch("fetchProductsId", id)
-      .then(({ data }) => {
-        this.name = data.name,
-        this.image_url = data.image_url,
-        this.price = data.price,
-        this.stock = data.stock
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  },
+  }
 };
 </script>
 

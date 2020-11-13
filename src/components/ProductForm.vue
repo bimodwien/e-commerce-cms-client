@@ -21,6 +21,7 @@ export default {
       this.$store.dispatch('deleteProducts', {id})
     },
     editProduct(id) {
+      this.$store.commit('SET_CURRENT_PRODUCTS', this.product)
       this.$router.push(`/edit/${id}`)
     }
   }
