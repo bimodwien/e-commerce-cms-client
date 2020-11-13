@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-4">
         <form @submit.prevent="submitLogin">
           <div class="form-group">

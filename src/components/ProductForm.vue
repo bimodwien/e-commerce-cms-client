@@ -5,7 +5,11 @@
       <td><img :src="product.image_url" alt="" style="width:200px"></td>
       <td>{{product.price}}</td>
       <td>{{product.stock}}</td>
-      <td><button class="btn btn-danger" @click="deleteProduct(product.id)">Delete</button></td>
+      <td>
+        <button class="btn btn-danger" @click="deleteProduct(product.id)">Delete</button> |
+        <button class="btn btn-primary" @click="editProduct(product.id)" >Edit</button>
+      </td>
+      
     </tr>
 </template>
 
@@ -15,6 +19,9 @@ export default {
   methods : {
     deleteProduct(id) {
       this.$store.dispatch('deleteProducts', {id})
+    },
+    editProduct(id) {
+      this.$router.push(`/edit/${id}`)
     }
   }
 }

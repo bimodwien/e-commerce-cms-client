@@ -1,7 +1,10 @@
 <template>
     <div class="login">
     <h1>This is a login page</h1>
-    <LoginForm />
+    <div class="justify-content-center">
+      <LoginForm />
+    </div>
+    
   </div>
 </template>
 
