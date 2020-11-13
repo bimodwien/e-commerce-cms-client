@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+    <h1>Welcome!!</h1><br>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <div class="container">
       <table class="table table-bordered">
