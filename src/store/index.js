@@ -22,8 +22,8 @@ export default new Vuex.Store({
     submitLogin (context, payload) {
       axios({
         method: 'POST',
-        url: 'http://localhost:3000/login',
-        // url: 'https://e-commerce-bimodwien.herokuapp.com/login',
+        // url: 'http://localhost:3000/login',
+        url: 'https://e-commerce-bimodwien.herokuapp.com/login',
         data: {
           email: payload.email,
           password: payload.password
@@ -43,8 +43,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('access_token')
       axios({
         method: 'GET',
-        url: 'http://localhost:3000/products',
-        // url: 'https://e-commerce-bimodwien.herokuapp.com/products',
+        // url: 'http://localhost:3000/products',
+        url: 'https://e-commerce-bimodwien.herokuapp.com/products',
         headers: {
           access_token: token
         }
@@ -61,8 +61,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('access_token')
       return axios({
         method: 'GET',
-        url: `http://localhost:3000/products/${payload}`,
-        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload}`,
+        // url: `http://localhost:3000/products/${payload}`,
+        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload}`,
         headers: {
           access_token: token
         }
@@ -73,8 +73,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('access_token')
       axios({
         method: 'POST',
-        url: 'http://localhost:3000/products',
-        // url: 'https://e-commerce-bimodwien.herokuapp.com/products',
+        // url: 'http://localhost:3000/products',
+        url: 'https://e-commerce-bimodwien.herokuapp.com/products',
         headers: {
           access_token: token
         },
@@ -99,8 +99,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('access_token')
       axios({
         method: 'PUT',
-        url: `http://localhost:3000/products/${payload.id}`,
-        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
+        // url: `http://localhost:3000/products/${payload.id}`,
+        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
         headers: {
           access_token: token
         },
@@ -123,8 +123,8 @@ export default new Vuex.Store({
       const token = localStorage.getItem('access_token')
       axios({
         method: 'DELETE',
-        url: `http://localhost:3000/products/${payload.id}`,
-        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
+        // url: `http://localhost:3000/products/${payload.id}`,
+        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
         headers: {
           access_token: token
         }
