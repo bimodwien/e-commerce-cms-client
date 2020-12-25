@@ -1,0 +1,11 @@
+.bg-images {
+  background-image: url('./assets//photo-1507842217343-583bb7270b66.jpg');
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.card-body {
+  padding: 0;
+}

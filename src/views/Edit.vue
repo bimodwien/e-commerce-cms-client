@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Ini adalah halaman Edit</h1>
     <EditForm :id="this.$route.params.id"></EditForm>
   </div>
 </template>

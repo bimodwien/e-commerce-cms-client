@@ -11,19 +11,19 @@ export default new Vuex.Store({
     currentProducts: {}
   },
   mutations: {
-    SET_PRODUCTS(state, dataProducts) {
+    SET_PRODUCTS (state, dataProducts) {
       state.products = dataProducts
     },
-    SET_CURRENT_PRODUCTS(state, dataProducts) {
+    SET_CURRENT_PRODUCTS (state, dataProducts) {
       state.currentProducts = dataProducts
     }
   },
   actions: {
-    submitLogin(context, payload) {
+    submitLogin (context, payload) {
       axios({
-        method: "POST",
-        // url: 'http://localhost:3000/login',
-        url: 'https://e-commerce-bimodwien.herokuapp.com/login',
+        method: 'POST',
+        url: 'http://localhost:3000/login',
+        // url: 'https://e-commerce-bimodwien.herokuapp.com/login',
         data: {
           email: payload.email,
           password: payload.password
@@ -39,13 +39,12 @@ export default new Vuex.Store({
         })
     },
 
-
-    fetchProducts(context, payload) {
+    fetchProducts (context, payload) {
       const token = localStorage.getItem('access_token')
       axios({
         method: 'GET',
-        // url: 'http://localhost:3000/products',
-        url: 'https://e-commerce-bimodwien.herokuapp.com/products',
+        url: 'http://localhost:3000/products',
+        // url: 'https://e-commerce-bimodwien.herokuapp.com/products',
         headers: {
           access_token: token
         }
@@ -58,25 +57,24 @@ export default new Vuex.Store({
         })
     },
 
-    fetchProductsId(context, payload) {
+    fetchProductsId (context, payload) {
       const token = localStorage.getItem('access_token')
       return axios({
         method: 'GET',
-        // url: `http://localhost:3000/products/${payload}`,
-        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload}`,
+        url: `http://localhost:3000/products/${payload}`,
+        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload}`,
         headers: {
           access_token: token
         }
-      })     
+      })
     },
 
-
-    addProducts(context, payload) {
+    addProducts (context, payload) {
       const token = localStorage.getItem('access_token')
       axios({
         method: 'POST',
-        // url: 'http://localhost:3000/products',
-        url: 'https://e-commerce-bimodwien.herokuapp.com/products',
+        url: 'http://localhost:3000/products',
+        // url: 'https://e-commerce-bimodwien.herokuapp.com/products',
         headers: {
           access_token: token
         },
@@ -87,22 +85,22 @@ export default new Vuex.Store({
           stock: payload.stock
         }
       })
-      .then(({ data }) => {
-        context.dispatch('fetchProducts')
-        router.push('/')
-      })
-      .catch(err => {
-        console.log(err)
-      })     
+        .then(({ data }) => {
+          context.dispatch('fetchProducts')
+          router.push('/')
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
 
-    editProducts({dispatch}, payload) {
-      console.log(payload);
-      const token = localStorage.getItem('access_token')     
+    editProducts ({ dispatch }, payload) {
+      console.log(payload)
+      const token = localStorage.getItem('access_token')
       axios({
         method: 'PUT',
-        // url: `http://localhost:3000/products/${payload.id}`,
-        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
+        url: `http://localhost:3000/products/${payload.id}`,
+        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
         headers: {
           access_token: token
         },
@@ -113,20 +111,20 @@ export default new Vuex.Store({
           stock: payload.stock
         }
       })
-      .then(({data}) => {
-        dispatch('fetchProducts')
-      })
-      .catch(err => {
-        console.log(err)
-      })
+        .then(({ data }) => {
+          dispatch('fetchProducts')
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
 
-    deleteProducts({ dispatch }, payload) {
+    deleteProducts ({ dispatch }, payload) {
       const token = localStorage.getItem('access_token')
       axios({
         method: 'DELETE',
-        // url: `http://localhost:3000/products/${payload.id}`,
-        url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
+        url: `http://localhost:3000/products/${payload.id}`,
+        // url: `https://e-commerce-bimodwien.herokuapp.com/products/${payload.id}`,
         headers: {
           access_token: token
         }

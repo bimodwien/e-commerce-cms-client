@@ -1,32 +1,36 @@
 <template>
-  <div class="container">
+  <div class="container full-height">
     <div class="row justify-content-center">
-      <div class="col-4">
-        <form @submit.prevent="submitLogin">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input
-              v-model="email"
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-            <small id="emailHelp" class="form-text text-muted"
-              >We'll never share your email with anyone else.</small
-            >
+      <div class="col-4 mt-5">
+        <div class="card">
+          <div class="card-body p-3">
+            <form @submit.prevent="submitLogin">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                  v-model="email"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  v-model="password"
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              v-model="password"
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
@@ -34,30 +38,33 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-        email: "",
-        password: "",
-    };
+      email: '',
+      password: ''
+    }
   },
   methods: {
-    submitLogin() {
+    submitLogin () {
       console.log('submit login')
-      console.log({email: this.email, password: this.password})
+      console.log({ email: this.email, password: this.password })
 
-      this.$store.dispatch('submitLogin', {email:this.email, password:this.password})
+      this.$store.dispatch('submitLogin', {
+        email: this.email,
+        password: this.password
+      })
     },
-    onReset(evt) {
-      evt.preventDefault();
+    onReset (evt) {
+      evt.preventDefault()
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
+      this.form.email = ''
+      this.form.name = ''
       // Trick to reset/clear native browser form validation state
-      this.show = false;
+      this.show = false
       this.$nextTick(() => {
-        this.show = true;
-      });
-    },
-  },
-};
+        this.show = true
+      })
+    }
+  }
+}
 </script>
