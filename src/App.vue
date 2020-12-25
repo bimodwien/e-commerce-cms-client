@@ -24,7 +24,7 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid bg-images">
+    <div class="container-fluid bg-images full-height">
       <router-view />
     </div>
   </div>

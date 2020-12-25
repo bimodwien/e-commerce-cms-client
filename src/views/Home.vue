@@ -1,6 +1,6 @@
 <template>
-  <div class="home full-height">
-    <div class="container">
+  <div class="home">
+    <div class="container full-height">
       <div class="card">
         <div class="card-body">
           <table class="table table-hover table-bordered table-striped">
